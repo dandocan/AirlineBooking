@@ -1,0 +1,102 @@
+@import "imports/vars.scss";
+@import "mixins.scss";
+
+@function box-width($boxes){
+	@return(900px/$boxes);
+}
+
+$a: green;
+$darkgreen: darken($a, 10%);
+$lightGreen: lighten($a, 10%);
+$b: 20px;
+$c: Helvetica, Arial, sans-serif;
+$d: 1px #000 solid;
+
+$primaryColor: red;
+$baseBoxWidth: 50px;
+$baseBoxHeight: 50px;
+$dir: "img/";
+
+body{
+	background-color: invert($primaryColor);
+}
+h1{
+	font-size: $b;
+}
+div{
+	width:400px; 
+	height: 400px;
+	background-size: auto;
+	border: $d;
+}
+#div1{
+	background-color: $primaryColor;
+	width: $baseBoxWidth;
+	height: $baseBoxHeight;
+	left: 50%;
+}
+#div2{
+	background-color: darken($primaryColor, 30%);
+	width: $baseBoxWidth/2;
+	height: $baseBoxHeight/2;
+	left: 50%;
+}
+#div3{
+	background-color: lighten($primaryColor, 50%);
+	width: $baseBoxWidth/4;
+	height: $baseBoxHeight/4;
+	left: 50%;
+}
+#image-bg{
+	background: url('#{$dir}lol.jpg');
+}
+section{
+	div{
+		background: red;
+	}
+	button{
+		font-size: 30px;
+	}
+	h1{color:white;}
+	a{text-decoration: none}
+
+}
+#random a{
+	text-decoration: none;
+	&:hover{
+		color:white;
+	}
+	&:visited{
+		color:yellow;
+	}
+}
+.message{
+	width: 400px;
+	border:3px #000 solid;
+	font-weight: bold;
+}
+.error{
+	@extend .message;
+	border-color: red;
+}
+.warning{
+	@extend .message;
+	border-color:orange;
+}
+$boxProperties: 40px, 40px, blue;
+#box1{
+	@include styleBox($boxProperties...);
+	width: box-width(3);
+}
+#box2{
+	@include styleBox(50px, 50px, blue);	
+}
+#box3{
+	@include styleBox(75px, 75px, green);
+}
+img{
+	width: 100px;
+}
+#img1{filter:blur(5px);}
+#img2{filter:sepia(100%);}
+#img3{filter:invert(50%);}

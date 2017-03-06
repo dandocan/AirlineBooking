@@ -1,0 +1,17 @@
+@mixin borderRadius($radius){
+	-webkit-border-radius:$radius;
+	-moz-border-radius:$radius;
+	-ms-border-radius:$radius;
+	-o-border-radius:$radius;
+	border-radius:$radius;
+}
+@mixin styleBox($height, $width, $bgColor){
+	width: $width;
+	height: $height;
+	background-color: $bgColor;
+	border-radius:5px;
+
+}
+@mixin applyFilter($filterType, $filterValue){
+	filter: $filterType($filterValue);
+}

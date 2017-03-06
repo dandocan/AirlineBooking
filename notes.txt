@@ -1,0 +1,1 @@
+SCSS can use variables, values with px can be modified with regular operators
